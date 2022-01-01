@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Card() {
+function Card({card}) {
     return (
-        <div className="post">
-            <h2>Title</h2>
-            <p>info</p>
+        <div key={card.id} className="post">
+            <h2>{card.title}</h2>
+            <p>{card.body}</p>
         </div>
     );
 }
