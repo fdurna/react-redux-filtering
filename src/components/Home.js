@@ -9,8 +9,13 @@ function Home() {
         <>
             <Header />
             <Loader />
-            <Card/>
-            <Paginate/>
+            <div className="container">
+                <div className="posts">
+                    <Card />
+                </div>
+                <Paginate
+                />
+            </div>
         </>
     );
 }

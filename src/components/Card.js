@@ -2,8 +2,9 @@ import React from 'react';
 
 function Card() {
     return (
-        <div>
-            Card
+        <div className="post">
+            <h2>Title</h2>
+            <p>info</p>
         </div>
     );
 }

@@ -2,8 +2,10 @@ import React from 'react';
 
 function Loader() {
     return (
-        <div>
-            Loader
+        <div className="bouncing-loader">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
     );
 }

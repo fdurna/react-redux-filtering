@@ -2,9 +2,15 @@ import React from 'react';
 
 function Paginate() {
     return (
-        <div>
-            Paginate
-        </div>
+        <>
+            <ul className="pagination">
+                <li className="page-item">
+                    <button className="page-link">
+                        1
+                    </button>
+                </li>
+            </ul>
+        </>
     );
 }
 
