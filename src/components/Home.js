@@ -8,9 +8,15 @@ import { fetchCards } from '../redux/actions/CardAction';
 
 
 function Home() {
+    const [search,setSearch] = useState('')
     const dispatch = useDispatch();
     const {cards,loading} = useSelector((state) => state.CardReducers);
     const [currentPage, setCurrentPage] = useState(1);
+
+    const handleChangeSearch = (e) => {
+        const value = e.target.value
+        setSearch(value)
+    }
 
     useEffect(()=> {
         dispatch(fetchCards())
@@ -23,22 +29,30 @@ function Home() {
     const indexOfLastCard = currentPage * postPerPage;
 	const indexOfFirstCard = indexOfLastCard - postPerPage;
     const filterCards = cards.slice(indexOfFirstCard, indexOfLastCard);
-    
     return (
         <>
-            <Header />
-            <Loader />
-            <div className="container">
-                <div className="posts">
-                    {
-                        filterCards.map((card)=>(
-                            <Card card={card} />
-                        ))
-                    }
-                </div>
-                <Paginate
-                />
-            </div>
+            <Header
+                search={search}
+                onChange={handleChangeSearch}
+            />
+            {
+                loading ? (
+                    <Loader />
+                )   : (
+                    <div className="container">
+                        <div className="posts">
+                            {
+                                filterCards.map((card)=>(
+                                    <Card key={card.id} card={card} />
+                                ))
+                            }
+                        </div>
+                        <Paginate
+                        />
+                    </div>
+                )
+            }
+            
         </>
     );
 }

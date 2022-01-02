@@ -26,6 +26,12 @@ export const CardReducers = (state = initialState,action) => {
                 loading:false,
                 error:action.payload
             }
+        case actions.SEARCH_CARDS:
+            return {
+                ...state,
+                cards:action.payload,
+                page:1
+            }
         default:
 			return state;
     }

@@ -17,3 +17,14 @@ export const fetchCards = () => async (dispatch) => {
         console.log(error.message)
     }
 }
+export const searchCard = (query) => async (dispatch,getState) => {
+    const { CardReducers } = getState();
+    const searchResults = CardReducers.searchResults.filter((card)=>
+        card.title.toLowerCase().includes(query.toLowerCase())
+    );
+    console.log(searchResults)
+    dispatch({
+        type:actions.SEARCH_CARDS,
+        payload:searchResults
+    })
+}

@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchCard } from '../redux/actions/CardAction';
 
-function Header() {
+
+function Header({onChange,search}) {
+    const dispatch = useDispatch();
     const [sort,setSort] = useState('asc')
     useEffect(()=> {
+        dispatch(searchCard(search));
         if(sort === 'desc'){
             console.log("desc")
         }
         if(sort === 'asc'){
             console.log("asc")
         }
-    },[sort])
+    },[sort,search])
     return (
         <>
         <header>
@@ -21,6 +26,7 @@ function Header() {
                     <input 
                         type="text"
                         placeholder='Search'
+                        onChange={onChange}
                     />
                 </div>
                 <div className='sort'>
