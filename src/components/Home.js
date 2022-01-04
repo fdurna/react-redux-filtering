@@ -23,11 +23,11 @@ function Home() {
     },[dispatch])
 
 
-    const postPerPage = 15;
+    const cardPostPage = 15;
 	const totalCards = cards.length;
 
-    const indexOfLastCard = currentPage * postPerPage;
-	const indexOfFirstCard = indexOfLastCard - postPerPage;
+    const indexOfLastCard = currentPage * cardPostPage;
+	const indexOfFirstCard = indexOfLastCard - cardPostPage;
     const filterCards = cards.slice(indexOfFirstCard, indexOfLastCard);
     return (
         <>
@@ -47,8 +47,17 @@ function Home() {
                                 ))
                             }
                         </div>
-                        <Paginate
-                        />
+                        {
+                            totalCards > cardPostPage && (
+                                <Paginate
+                                    currentPage={currentPage}
+                                    setCurrentPage={setCurrentPage}
+                                    totalCards={totalCards}
+                                    cardPostPage={cardPostPage}
+                                />
+                            )
+                        }
+                       
                     </div>
                 )
             }
