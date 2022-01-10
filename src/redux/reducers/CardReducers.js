@@ -26,6 +26,18 @@ export const CardReducers = (state = initialState,action) => {
                 loading:false,
                 error:action.payload
             }
+        case actions.SORT_POSTS_ASC:
+            const sortAsc = action.payload.sort((a,b)=>(a.title<b.title ? 1 : a.title>b.title ? -1:0))
+            return {
+                ...state,
+                cards:sortAsc
+            }
+        case actions.SORT_POSTS_DESC:
+            const sortDesc = action.payload.sort((a,b)=>(a.title<b.title ? -1 : a.title > b.title ? 1 : 0))
+            return {
+                ...state,
+                cards:sortDesc
+            }
         case actions.SEARCH_CARDS:
             return {
                 ...state,

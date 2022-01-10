@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { searchCard } from '../redux/actions/CardAction';
+import { sortCardAsc, sortCardDesc, searchCard } from '../redux/actions/CardAction';
 
 
 function Header({onChange,search}) {
     const dispatch = useDispatch();
     const [sort,setSort] = useState('asc')
+    
     useEffect(()=> {
         dispatch(searchCard(search));
         if(sort === 'desc'){
-            console.log("desc")
+            dispatch(sortCardDesc())
         }
         if(sort === 'asc'){
-            console.log("asc")
+            dispatch(sortCardAsc())
         }
-    },[sort,search])
+    },[sort,search,dispatch])
     return (
         <>
         <header>

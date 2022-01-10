@@ -17,6 +17,23 @@ export const fetchCards = () => async (dispatch) => {
         console.log(error.message)
     }
 }
+
+export const sortCardAsc = () => (dispatch,getState) => {
+    const {CardReducers} = getState();
+    dispatch({
+        type:actions.SORT_POSTS_ASC,
+        payload:CardReducers.cards
+    })
+}
+
+export const sortCardDesc = () => (dispatch,getState) => {
+    const {CardReducers} = getState();
+    dispatch({
+        type:actions.SORT_POSTS_DESC,
+        payload:CardReducers.cards
+    })
+}
+
 export const searchCard = (query) => async (dispatch,getState) => {
     const { CardReducers } = getState();
     const searchResults = CardReducers.searchResults.filter((card)=>
