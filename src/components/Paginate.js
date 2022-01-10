@@ -13,7 +13,7 @@ function Paginate({currentPage,setCurrentPage,totalCards,cardPostPage}) {
         <>
             <ul className="pagination">
                 <li className={`page-item ${currentPage === 1 && `disabled`}`}>
-                    <button className="page-link">
+                    <button className="page-link" onClick={() => setCurrentPage(currentPage -1 )}>
                         &laquo;
                     </button>
                 </li>
@@ -22,13 +22,14 @@ function Paginate({currentPage,setCurrentPage,totalCards,cardPostPage}) {
                         <li
                             key={page}
                             className={`page-item ${page === currentPage && `active`}`}
+                            onClick={() => setCurrentPage(page)}
                         >
                             <button className='page-link'>{page}</button>
                         </li>
                     ))
                 }
                 <li className={`page-item ${currentPage === totalPages && `disabled`}`}>
-                    <button className="page-link">
+                    <button className="page-link" onClick={() => setCurrentPage(currentPage + 1)}>
                         &raquo;
                     </button>
                 </li>
