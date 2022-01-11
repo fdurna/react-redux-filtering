@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.20286576.css",
-    "main.js": "/static/js/main.31e79579.js",
-    "static/js/787.ea919d68.chunk.js": "/static/js/787.ea919d68.chunk.js",
-    "index.html": "/index.html",
-    "main.20286576.css.map": "/static/css/main.20286576.css.map",
-    "main.31e79579.js.map": "/static/js/main.31e79579.js.map",
-    "787.ea919d68.chunk.js.map": "/static/js/787.ea919d68.chunk.js.map"
+    "main.css": "/react-redux-filtering/static/css/main.20286576.css",
+    "main.js": "/react-redux-filtering/static/js/main.8477860b.js",
+    "static/js/787.ea919d68.chunk.js": "/react-redux-filtering/static/js/787.ea919d68.chunk.js",
+    "index.html": "/react-redux-filtering/index.html",
+    "main.20286576.css.map": "/react-redux-filtering/static/css/main.20286576.css.map",
+    "main.8477860b.js.map": "/react-redux-filtering/static/js/main.8477860b.js.map",
+    "787.ea919d68.chunk.js.map": "/react-redux-filtering/static/js/787.ea919d68.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.20286576.css",
-    "static/js/main.31e79579.js"
+    "static/js/main.8477860b.js"
   ]
 }
