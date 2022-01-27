@@ -8,20 +8,13 @@ import { fetchCards } from '../redux/actions/CardAction';
 
 
 function Home() {
-    const [search,setSearch] = useState('')
     const dispatch = useDispatch();
     const {cards,loading} = useSelector((state) => state.CardReducers);
     const [currentPage, setCurrentPage] = useState(1);
 
-    const handleChangeSearch = (e) => {
-        const value = e.target.value
-        setSearch(value)
-    }
-
     useEffect(()=> {
         dispatch(fetchCards())
     },[dispatch])
-
 
     const cardPostPage = 15;
 	const totalCards = cards.length;
@@ -31,10 +24,7 @@ function Home() {
     const filterCards = cards.slice(indexOfFirstCard, indexOfLastCard);
     return (
         <>
-            <Header
-                search={search}
-                onChange={handleChangeSearch}
-            />
+            <Header />
             {
                 loading ? (
                     <Loader />

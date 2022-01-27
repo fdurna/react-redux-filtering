@@ -3,10 +3,15 @@ import { useDispatch } from 'react-redux';
 import { sortCardAsc, sortCardDesc, searchCard } from '../redux/actions/CardAction';
 
 
-function Header({onChange,search}) {
+function Header() {
+
     const dispatch = useDispatch();
+
+    const [search,setSearch] = useState('')
     const [sort,setSort] = useState('asc')
     
+    const handleChangeSearch = (e) => setSearch(e.target.value)
+
     useEffect(()=> {
         dispatch(searchCard(search));
         if(sort === 'desc'){
@@ -16,6 +21,7 @@ function Header({onChange,search}) {
             dispatch(sortCardAsc())
         }
     },[sort,search,dispatch])
+
     return (
         <>
         <header>
@@ -27,7 +33,7 @@ function Header({onChange,search}) {
                     <input 
                         type="text"
                         placeholder='Search'
-                        onChange={onChange}
+                        onChange={handleChangeSearch}
                     />
                 </div>
                 <div className='sort'>
