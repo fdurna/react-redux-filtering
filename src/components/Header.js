@@ -3,8 +3,7 @@ import { useDispatch } from 'react-redux';
 import { sortCardAsc, sortCardDesc, searchCard } from '../redux/actions/CardAction';
 
 
-function Header() {
-
+function Header({filterCards}) {
     const dispatch = useDispatch();
 
     const [search,setSearch] = useState('')
@@ -44,6 +43,10 @@ function Header() {
                 </div>
             </div>
         </header>
+        {
+            filterCards.length? (
+                ""
+            ):<h3 className='text-center'>Not Found</h3>}
         </>
     );
 }

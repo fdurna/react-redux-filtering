@@ -24,7 +24,7 @@ function Home() {
     const filterCards = cards.slice(indexOfFirstCard, indexOfLastCard);
     return (
         <>
-            <Header />
+            <Header filterCards={filterCards} />
             {
                 loading ? (
                     <Loader />
